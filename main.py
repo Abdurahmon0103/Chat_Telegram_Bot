@@ -50,11 +50,9 @@ async def audio_send(message: Message):
 
 @dp.message()
 async def echo_handler(message: Message) -> None:    
-        client = genai.Client(api_key="")
+        client = genai.Client(api_key="AIzaSyDCYRBoyDrNEf154YntSmY92XQvthVRO-8")
         def ai():      
-            response = client.models.generate_content(
-                model="gemini-2.5-flash", contents=message.text
-            )
+            response = client.models.generate_content( model="gemini-2.5-flash", contents=message.text )
             return response.text
         await message.reply(ai())
 async def main() -> None:

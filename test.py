@@ -1,26 +1,14 @@
-# Foydalanuvchidan sonlar va amalni so'rash
-malumot = input("Ikki son va amalni vergul bilan kiriting (masalan: 5,7,+): ")
+import requests
 
-# Ajratib olish
-son1, son2, amal = malumot.split(",")
+url = "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct"
+headers = {"Authorization": "Bearer YOUR_HF_API_TOKEN"}
 
-# Sonlarni float qilib olamiz (butun va kasr sonlar uchun)
-son1 = float(son1)
-son2 = float(son2)
+data = {
+    "inputs": "Salom! Qalaysiz?",
+    "parameters": {"max_new_tokens": 128}
+}
 
-# Amalni bajarish
-if amal == "+":
-    natija = son1 + son2
-elif amal == "-":
-    natija = son1 - son2
-elif amal == "*":
-    natija = son1 * son2
-elif amal == "/":
-    if son2 != 0:
-        natija = son1 / son2
-    else:
-        natija = "Nolga bo'lish mumkin emas!"
-else:
-    natija = "Noto‘g‘ri amal kiritildi!"
+response = requests.post(url, headers=headers, json=data)
 
-print("Natija:", natija)
+print(response.status_code)
+print(response.json())
