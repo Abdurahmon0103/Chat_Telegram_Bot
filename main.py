@@ -50,14 +50,13 @@ async def audio_send(message: Message):
 
 @dp.message()
 async def echo_handler(message: Message) -> None:    
-        client = genai.Client(api_key="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")
+        client = genai.Client(api_key="")
         def ai():      
             response = client.models.generate_content(
                 model="gemini-2.5-flash", contents=message.text
             )
             return response.text
         await message.reply(ai())
-    
 async def main() -> None:
     # Initialize Bot instance with default bot properties which will be passed to all API calls
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
