@@ -33,7 +33,18 @@ Bo't Commands:
 /video = Video
 /audio = Audio
 /photo = Rasm
+/project = Shu bo'tga o'xshagan loyihalar
 """)
+
+@dp.message(Command("project"))
+async def project_send(message: Message):
+    await message.answer(
+        """
+        Admin tomonidan yaratilgan web loyihalar:
+        1. https://project-admin-panel-with-vue.netlify.app/DataTable
+        2. https://olmamarket.netlify.app/Home
+        """
+    )
 
 @dp.message(Command("video"))
 async def vd_send(message: Message):
