@@ -10,7 +10,6 @@ from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 
-# .env dagi o‘zgaruvchilarni yuklash
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -22,7 +21,7 @@ async def command_start_handler(message: Message) -> None:
     await message.answer("""
 Salom!!!
 Bu bot sizga video, audio va rasm yuboradi.
-Ai va Calculator kabi xususiyatlari ham mavjud.
+va AI kabi xususiyatlari ham mavjud.
 Sizga yordam kerak bo'lsa /help buyrug'ini bosing.
 """)
 
@@ -33,7 +32,7 @@ Bo't Commands:
 /video = Video
 /audio = Audio
 /photo = Rasm
-/project = Shu bo'tga o'xshagan loyihalar
+/project = Admin tomonidan yaratilgan web loyihalar
 """)
 
 @dp.message(Command("project"))
@@ -56,7 +55,7 @@ async def vd_send(message: Message):
 @dp.message(Command("photo"))
 async def image_send(message: Message):
     await message.answer_photo(
-        photo="AgACAgIAAxkBAAObaKcEf8rfQs0KGIEtMRLPjhj3aF4AAoP0MRvl4fFIrDOYuqPSfJgBAAMCAANzAAM2BA", 
+        photo="AgACAgIAAxkBAAMiaKk0bnqelv2co7LdrdFg3X-JwBUAAqn1MRt_uFFJahdUjesiohsBAAMCAANzAAM2BA", 
         caption="Bu Rasm"
     )
 
@@ -79,6 +78,7 @@ async def echo_handler(message: Message) -> None:
         return response.text
 
     await message.reply(ai())
+
 
 async def main() -> None:
     bot = Bot(
