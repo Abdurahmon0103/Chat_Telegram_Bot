@@ -48,7 +48,7 @@ async def project_send(message: Message):
 @dp.message(Command("video"))
 async def vd_send(message: Message):
     await message.answer_video(
-        video="BAACAgIAAxkBAAOUaKcDM5MByJA3lwdE_BKnI5T3Z2MAAiR1AAL7pClJDBj2kOheFyc2BA", 
+        video="BAACAgIAAxkBAANPaKlKldZOoSx1EONA676AAz1CmoAAAo19AAJ_uFFJtM7okO3jjhM2BA", 
         caption="Bu Video"
     )
 
@@ -62,7 +62,7 @@ async def image_send(message: Message):
 @dp.message(Command("audio"))
 async def audio_send(message: Message):
     await message.answer_audio(
-        audio="CQACAgIAAxkBAAOhaKcFa0V12ejGJE0fOW6v3ESwbYcAAv1yAAKOeaBJLMunSiJ1Lpc2BA", 
+        audio="CQACAgIAAxkBAAM_aKlHd8y_ccjw1eFghP0OIcjlxMcAAmZkAAKKHplL80sYiYBnsh42BA", 
         caption="Bu Audio"
     )
 
